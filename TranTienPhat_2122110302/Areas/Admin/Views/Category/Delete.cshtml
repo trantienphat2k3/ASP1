@@ -1,0 +1,92 @@
+﻿@model TranTienPhat_2122110302.DB.Category
+
+@{
+    ViewBag.Title = "Delete";
+}
+<div class="content-wrapper">
+    <h2>Delete</h2>
+
+    <h3>Are you sure you want to delete this?</h3>
+    <div>
+        <h4>Category</h4>
+        <hr />
+
+        <style>
+            .info-container {
+                background-color: #ffffff;
+                padding: 25px;
+                border-radius: 10px;
+                box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+                max-width: 700px;
+                margin: 30px auto;
+                font-family: 'Arial', sans-serif;
+            }
+
+                .info-container dt {
+                    font-weight: bold;
+                    font-size: 18px;
+                    color: #4a4a4a;
+                    margin-top: 15px;
+                    transition: color 0.3s ease;
+                }
+
+                .info-container dd {
+                    margin-left: 0;
+                    font-size: 17px;
+                    color: #333;
+                    margin-bottom: 15px;
+                    padding: 10px;
+                    background-color: #f9f9f9;
+                    border-radius: 8px;
+                    transition: background-color 0.3s ease, transform 0.3s ease;
+                }
+
+                    .info-container dd:hover {
+                        background-color: #ffe5d9;
+                        transform: scale(1.03);
+                    }
+
+                .info-container dt::before {
+                    content: "• ";
+                    color: #ff6f61;
+                    font-size: 22px;
+                }
+
+                .info-container dl {
+                    display: grid;
+                    grid-template-columns: 1fr 2fr;
+                    align-items: center;
+                    column-gap: 20px;
+                }
+
+                    .info-container dl dt,
+                    .info-container dl dd {
+                        padding: 5px;
+                    }
+        </style>
+
+        <div class="info-container">
+            <dl class="dl-horizontal">
+                <dt>@Html.DisplayNameFor(model => model.Name)</dt>
+                <dd>@Html.DisplayFor(model => model.Name)</dd>
+
+                <dt>@Html.DisplayNameFor(model => model.Show)</dt>
+                <dd>@Html.DisplayFor(model => model.Show)</dd>
+
+                <dt>@Html.DisplayNameFor(model => model.Image)</dt>
+                <dd>@Html.DisplayFor(model => model.Image)</dd>
+            </dl>
+        </div>
+
+
+        @using (Html.BeginForm("Delete", "Category", FormMethod.Post, new { enctype = "mutipart/form-data" }))
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-actions no-color">
+                <input type="submit" value="Delete" class="btn btn-default" /> |
+                @Html.ActionLink("Back to List", "Index")
+            </div>
+        }
+    </div>
+</div>

@@ -1,0 +1,98 @@
+﻿@model TranTienPhat_2122110302.DB.Order
+
+@{
+    ViewBag.Title = "Details";
+}
+<div class="content-wrapper">
+    <h2>Details</h2>
+
+    <div>
+        <h4>Order</h4>
+        <hr />
+        <style>
+            .details-container {
+                max-width: 800px;
+                margin: auto;
+                padding: 20px;
+                background-color: #ffffff;
+                border-radius: 8px;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            }
+
+                .details-container h2 {
+                    margin-bottom: 20px;
+                    font-size: 28px;
+                    font-weight: 600;
+                    color: #333;
+                }
+
+                .details-container h4 {
+                    margin-bottom: 20px;
+                    font-size: 24px;
+                    font-weight: 500;
+                    color: #555;
+                }
+
+                .details-container dl {
+                    margin: 0;
+                }
+
+                .details-container dt {
+                    font-weight: 600;
+                    margin-top: 10px;
+                    color: #333;
+                }
+
+                .details-container dd {
+                    margin: 0 0 10px 0;
+                    padding: 5px 0;
+                    color: #555;
+                }
+
+                .details-container dd, .details-container dt {
+                    border-bottom: 1px solid #ddd;
+                    padding-bottom: 10px;
+                }
+
+            .details-actions {
+                margin-top: 20px;
+                text-align: center;
+            }
+
+                .details-actions a {
+                    color: #007bff;
+                    font-size: 16px;
+                    text-decoration: none;
+                    transition: color 0.3s;
+                }
+
+                    .details-actions a:hover {
+                        color: #0056b3;
+                    }
+        </style>
+
+        <div class="details-container">
+            <div>
+                <dl>
+                    <dt>@Html.DisplayNameFor(model => model.Name)</dt>
+                    <dd>@Html.DisplayFor(model => model.Name)</dd>
+
+                    <dt>@Html.DisplayNameFor(model => model.UserId)</dt>
+                    <dd>@Html.DisplayFor(model => model.UserId)</dd>
+
+                    <dt>@Html.DisplayNameFor(model => model.Status)</dt>
+                    <dd>@Html.DisplayFor(model => model.Status)</dd>
+
+                    <dt>@Html.DisplayNameFor(model => model.CreatedOnUtc)</dt>
+                    <dd>@Html.DisplayFor(model => model.CreatedOnUtc)</dd>
+                </dl>
+            </div>
+
+            <div class="details-actions">
+                @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+                @Html.ActionLink("Back to List", "Index")
+            </div>
+        </div>
+
+    </div>
+</div>

@@ -1,0 +1,130 @@
+﻿@model TranTienPhat_2122110302.DB.Category
+
+@{
+    ViewBag.Title = "Create";
+}
+<div class="content-wrapper">
+    <h2>Create</h2>
+
+    <style>
+        .form-horizontal {
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+            .form-horizontal h4 {
+                margin-bottom: 20px;
+            }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-control {
+            border-radius: 4px;
+            box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-control-file {
+            border-radius: 4px;
+            box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+        }
+
+        .checkbox {
+            margin-top: 5px;
+        }
+
+        .btn {
+            background-color: #007bff;
+            border-color: #007bff;
+            color: #ffffff;
+            font-size: 16px;
+            font-weight: 500;
+            border-radius: 4px;
+            padding: 10px 20px;
+            transition: background-color 0.3s, border-color 0.3s;
+        }
+
+            .btn:hover {
+                background-color: #0056b3;
+                border-color: #004085;
+            }
+
+        .text-danger {
+            font-size: 14px;
+        }
+
+        .back-link {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+            .back-link a {
+                color: #007bff;
+                font-size: 16px;
+                text-decoration: none;
+                transition: color 0.3s;
+            }
+
+                .back-link a:hover {
+                    color: #0056b3;
+                }
+    </style>
+
+    @using (Html.BeginForm("Create", "Category", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        @Html.AntiForgeryToken()
+
+<div class="form-horizontal">
+    <h4>Create Category</h4>
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="form-group row">
+        @Html.LabelFor(model => model.Id, htmlAttributes: new { @class = "col-md-2 col-form-label" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Id, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Id, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group row">
+        @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "col-md-2 col-form-label" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group row">
+        @Html.LabelFor(model => model.Show, htmlAttributes: new { @class = "col-md-2 col-form-label" })
+        <div class="col-md-10">
+            <div class="form-check">
+                @Html.EditorFor(model => model.Show, new { htmlAttributes = new { @class = "form-check-input" } })
+                @Html.ValidationMessageFor(model => model.Show, "", new { @class = "text-danger" })
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        @Html.LabelFor(model => model.Image, htmlAttributes: new { @class = "col-md-2 col-form-label" })
+        <div class="col-md-10">
+            <input type="file" name="ImageUpload" class="form-control-file" />
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <div class="col-md-10 offset-md-2">
+            <input type="submit" value="Create" class="btn" />
+        </div>
+    </div>
+</div>
+    }
+
+    <div class="back-link">
+        @Html.ActionLink("Back to List", "Index")
+    </div>
+
+</div>

@@ -1,0 +1,64 @@
+﻿@model IEnumerable<TranTienPhat_2122110302.DB.User>
+
+@{
+    ViewBag.Title = "User";
+}
+<div class="content-wrapper">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+            <h2 class="text-primary">User Management</h2>
+            @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-success" })
+        </div>
+
+        <table class="table table-striped table-bordered">
+            <thead class="thead-dark">
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.firstname)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.lastname)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.password)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.email)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.isadmin)
+                    </th>
+
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.firstname)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.lastname)
+                        </td>
+                        <td>
+                            <input value="@item.password" readonly class="form-control-plaintext" style="border:none; background:none;" />
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.email)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.isadmin)
+                        </td>
+
+                        <td>
+                            @Html.ActionLink("Edit", "Edit", new { id = item.userid }, new { @class = "btn btn-primary btn-sm" }) |
+                            @Html.ActionLink("Details", "Details", new { id = item.userid }, new { @class = "btn btn-secondary btn-sm" }) |
+                            @Html.ActionLink("Delete", "Delete", new { id = item.userid }, new { @class = "btn btn-danger btn-sm" })
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
